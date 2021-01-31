@@ -1,12 +1,12 @@
 lst1, dct1 = [], {}
 fhand = open("ipaddress.txt")
 for line in fhand:
-    pos1 = line.find("M,") #start index of ip address
-    pos2 = line.find(",", pos1+2) #end index of ip address
+    pos1 = line.find("M,") #start index for extracting the ip address
+    pos2 = line.find(",", pos1+2) #end index for extracting the ip address
     lst1.append(line[pos1+2 : pos2])
 
-    pos1 = line.find("(") #start index of the machine used
-    pos2 = line.find(";", pos1+2) #end index of the machine used
+    pos1 = line.find("(") #start index for extracting the machine used
+    pos2 = line.find(";", pos1+2) #end index for extracting the machine used
     dct1[line[pos1+1 : pos2]] = dct1.get(line[pos1+1 : pos2], 0) + 1
 
 print(*lst1, sep="\n", end="\n\n\n")
